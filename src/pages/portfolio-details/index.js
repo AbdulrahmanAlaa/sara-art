@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
 import { dataportfolioDetails, meta } from "../../content_option";
 import { useParams } from "react-router-dom";
+
 export const PortfolioDetails = () => {
   const { id } = useParams();
   const data = dataportfolioDetails[id];
+  const [fullscreenImage, setFullscreenImage] = useState(null);
+
+  const handleImageClick = (imgSrc) => {
+    setFullscreenImage(imgSrc);
+  };
+
+  const handleClose = () => {
+    setFullscreenImage(null);
+  };
+
   return (
     <HelmetProvider>
+      {fullscreenImage && (
+        <div className="fullscreen-overlay" onClick={handleClose}>
+          <span className="close-button">&times;</span>
+          <img src={fullscreenImage} alt="" className="fullscreen-image" />
+        </div>
+      )}
       <Container className="About-header">
         <Helmet>
           <meta charSet="utf-8" />
@@ -25,7 +42,12 @@ export const PortfolioDetails = () => {
           {data.map((data, i) => {
             return (
               <div key={i} className="po_item">
-                <img src={data.img} alt="" />
+                <img
+                  src={data.img}
+                  alt=""
+                  onClick={() => handleImageClick(data.img)}
+                  style={{ cursor: 'pointer' }}
+                />
               </div>
             );
           })}
