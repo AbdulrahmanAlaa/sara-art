@@ -2,9 +2,9 @@
 
 A simple portfolio template for developer/designers built with React.
 
-### [live preview](https://AbdulrahmanAlaa.github.io/sara-art/)
+### [live preview](https://www.sara-art.uk)
 
-[![react portfoiio](src/assets/images/react%20portfolio%20gif.gif)](https://AbdulrahmanAlaa.github.io/sara-art/)
+[![react portfoiio](src/assets/images/react%20portfolio%20gif.gif)](https://www.sara-art.uk/)
 
 ### Features
 

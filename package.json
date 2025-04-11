@@ -2,7 +2,7 @@
     "name": "sara-portfolio",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://abdulrahmanalaa.github.io/sara-art",
+    "homepage": "https://www.sara-art.uk/",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
