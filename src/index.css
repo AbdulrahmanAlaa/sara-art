@@ -1,5 +1,5 @@
 :root {
-    --bg-color: #0c0c0c;
+    --bg-color: #c59ee3;
     --primary-color: #0d0d0d;
     --secondary-color: #fff;
     --text-color: #fff;
@@ -30,7 +30,7 @@ body {
     overflow-y: visible;
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding-top: 60px;
@@ -71,7 +71,7 @@ p {
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .cursor__dot div {

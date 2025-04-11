@@ -5,7 +5,7 @@ import {
   FaTwitter,
   FaFacebookF,
   FaLinkedin,
-  FaYoutube,
+  FaBehance,
   FaTwitch,
   FaInstagram,
   FaSnapchatGhost,
@@ -24,7 +24,7 @@ const ICON_MAPPING = {
   tiktok: FaTiktok,
   twitter: FaTwitter,
   twitch: FaTwitch,
-  youtube: FaYoutube
+  behance: FaBehance
 };
 
 export const Socialicons = (params) => {

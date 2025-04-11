@@ -40,3 +40,14 @@
         max-width: 1140px;
     }
 }
+.portfolio_bg {
+    width: 100%;
+}
+/* small screen make height 100 instead of with */
+@media (max-width: 767px) {
+    .portfolio_bg {
+        height: 70vh;
+        overflow: hidden;
+        width: auto;
+    }
+}
