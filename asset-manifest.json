@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.f4a767c8.css",
-    "main.js": "/static/js/main.80a452d8.js",
-    "static/media/portfolio_bg2.jpg": "/static/media/portfolio_bg2.2c9cd0f8db3389c70184.jpg",
-    "static/media/logo.png": "/static/media/logo.293ed3d8940d07b4d0b7.png",
-    "index.html": "/index.html"
+    "main.css": "/sara-art/static/css/main.f4a767c8.css",
+    "main.js": "/sara-art/static/js/main.ca07b801.js",
+    "static/media/portfolio_bg2.jpg": "/sara-art/static/media/portfolio_bg2.2c9cd0f8db3389c70184.jpg",
+    "static/media/logo.png": "/sara-art/static/media/logo.293ed3d8940d07b4d0b7.png",
+    "index.html": "/sara-art/index.html"
   },
   "entrypoints": [
     "static/css/main.f4a767c8.css",
-    "static/js/main.80a452d8.js"
+    "static/js/main.ca07b801.js"
   ]
 }
