@@ -13,9 +13,9 @@
     text-align: center;
     margin: 0.5rem auto;
     position: relative;
-    background: var(--secondary-color);
+    /* background: var(--secondary-color); */
     padding: 6px;
-    border: 1px solid var(--secondary-color);
+    /* border: 1px solid var(--secondary-color); */
     transition: 0.3s ease;
     font-size: 0;
     min-height: 300px;
@@ -42,7 +42,7 @@
     width: 100%;
     transition: 0.3s ease-in-out;
     opacity: 0;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .po_item .content {
@@ -53,7 +53,7 @@
 }
 
 .po_item:hover {
-    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.25);
+    /* box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.25); */
 }
 
 .po_item:hover .content {
@@ -69,7 +69,7 @@
 
 .po_item .content a {
     background: var(--bg-color);
-    border: solid 1px var(--text-color);
+    /* border: solid 1px var(--text-color); */
     padding: 4px 8px;
     text-align: center;
     font-size: 1rem;
