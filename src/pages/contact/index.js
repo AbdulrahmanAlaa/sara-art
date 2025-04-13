@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as emailjs from "emailjs-com";
+import * as emailjs from "@emailjs/browser";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { meta } from "../../content_option";
@@ -22,9 +22,8 @@ export const ContactUs = () => {
     setFormdata({ loading: true });
 
     const templateParams = {
-      from_name: formData.email,
-      user_name: formData.name,
-      to_name: contactConfig.YOUR_EMAIL,
+      email: formData.email,
+      name: formData.name,
       message: formData.message,
     };
 
@@ -33,7 +32,7 @@ export const ContactUs = () => {
         contactConfig.YOUR_SERVICE_ID,
         contactConfig.YOUR_TEMPLATE_ID,
         templateParams,
-        contactConfig.YOUR_USER_ID
+        'yZFW5fvBkZ04m6ULW'
       )
       .then(
         (result) => {
@@ -83,9 +82,8 @@ export const ContactUs = () => {
             <Alert
               //show={formData.show}
               variant={formData.variant}
-              className={`rounded-0 co_alert ${
-                formData.show ? "d-block" : "d-none"
-              }`}
+              className={`rounded-0 co_alert ${formData.show ? "d-block" : "d-none"
+                }`}
               onClose={() => setFormdata({ show: false })}
               dismissible
             >
@@ -131,8 +129,8 @@ export const ContactUs = () => {
                     className="form-control rounded-0"
                     id="email"
                     name="email"
-                    placeholder="Email"
-                    type="email"
+                    placeholder="Email / Phone"
+                    type="text"
                     value={formData.email || ""}
                     required
                     onChange={handleChange}
