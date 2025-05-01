@@ -5,11 +5,12 @@
     "homepage": "https://www.sara-art.uk/",
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build",
+        "build": "yarn optimize-images && react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "predeploy": "yarn build && cp build/index.html build/404.html && cp ./CNAME build/CNAME",
-        "deploy": "gh-pages -d build"
+        "deploy": "gh-pages -d build",
+        "optimize-images": "node --experimental-json-modules scripts/optimize-images.js"
     },
     "dependencies": {
         "@emailjs/browser": "^4.4.1",
@@ -24,7 +25,8 @@
         "react-scripts": "^5.0.1",
         "react-transition-group": "^4.4.2",
         "typewriter-effect": "^2.18.2",
-        "web-vitals": "^3.1.1"
+        "web-vitals": "^3.1.1",
+        "sharp": "^0.33.2"
     },
     "eslintConfig": {
         "extends": [
@@ -46,5 +48,6 @@
     },
     "devDependencies": {
         "gh-pages": "^6.3.0"
-    }
+    },
+    "type": "module"
 }

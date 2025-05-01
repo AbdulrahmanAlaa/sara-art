@@ -4,6 +4,8 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
 import { dataportfolio, meta } from "../../content_option";
 import { Link } from "react-router-dom";
+import { getOptimizedImagePath } from "../../utils/imageHelpers";
+
 export const Portfolio = () => {
   return (
     <HelmetProvider>
@@ -23,7 +25,7 @@ export const Portfolio = () => {
           {dataportfolio.map((data, i) => {
             return (
               <div key={i} className="po_item">
-                <img src={data.img} alt="" />
+                <img src={getOptimizedImagePath(data.img)} alt="" />
                 <div className="content">
                   <p>{data.description}</p>
                   <Link to={`/portfolio/${data.id}`} > view project</Link>

@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
 import { dataportfolioDetails, meta } from "../../content_option";
 import { useParams } from "react-router-dom";
+import { getOptimizedImagePath } from "../../utils/imageHelpers";
 
 export const PortfolioDetails = () => {
   const { id } = useParams();
   const data = dataportfolioDetails[id];
   const [fullscreenImage, setFullscreenImage] = useState(null);
+  const [loadedImages, setLoadedImages] = useState({});
 
   const handleImageClick = (imgSrc) => {
     setFullscreenImage(imgSrc);
@@ -18,12 +20,16 @@ export const PortfolioDetails = () => {
     setFullscreenImage(null);
   };
 
+  const handleImageLoad = (imgSrc) => {
+    setLoadedImages(prev => ({ ...prev, [imgSrc]: true }));
+  };
+
   return (
     <HelmetProvider>
       {fullscreenImage && (
         <div className="fullscreen-overlay" onClick={handleClose}>
           <span className="close-button">&times;</span>
-          <img src={fullscreenImage} alt="" className="fullscreen-image" />
+          <img src={getOptimizedImagePath(fullscreenImage)} alt="" className="fullscreen-image" />
         </div>
       )}
       <Container className="About-header">
@@ -40,13 +46,21 @@ export const PortfolioDetails = () => {
         </Row>
         <div className="mb-5 po_items_ho">
           {data.map((data, i) => {
+            const optimizedSrc = getOptimizedImagePath(data.img);
             return (
               <div key={i} className="po_item">
+                {!loadedImages[optimizedSrc] && <div className="image-placeholder" />}
                 <img
-                  src={data.img}
+                  src={optimizedSrc}
                   alt=""
+                  loading="lazy"
                   onClick={() => handleImageClick(data.img)}
-                  style={{ cursor: 'pointer' }}
+                  onLoad={() => handleImageLoad(optimizedSrc)}
+                  style={{
+                    cursor: 'pointer',
+                    opacity: loadedImages[optimizedSrc] ? 1 : 0,
+                    transition: 'opacity 0.3s'
+                  }}
                 />
               </div>
             );
