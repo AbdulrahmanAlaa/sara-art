@@ -1,5 +1,10 @@
 export const getOptimizedImagePath = (originalPath) => {
-    // Convert the original path to .webp
-    const webpPath = originalPath.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+    // If the path is already a webpack processed URL, return it as-is
+    if (originalPath.startsWith('http') || originalPath.includes('/static/media/')) {
+        return originalPath;
+    }
+
+    // Only convert direct file paths
+    const webpPath = originalPath.replace(/\.(jpg|jpeg|png|gif)$/i, '.webp');
     return webpPath;
 };

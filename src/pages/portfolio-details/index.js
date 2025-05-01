@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
@@ -8,6 +9,7 @@ import { getOptimizedImagePath } from "../../utils/imageHelpers";
 
 export const PortfolioDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const data = dataportfolioDetails[id];
   const [fullscreenImage, setFullscreenImage] = useState(null);
   const [loadedImages, setLoadedImages] = useState({});
@@ -40,7 +42,16 @@ export const PortfolioDetails = () => {
         </Helmet>
         <Row className="mb-0 mt-3 pt-md-3">
           <Col lg="8">
-            <h1 className="display-4 mb-4"> Portfolio </h1>{" "}
+            <div className="d-flex align-items-center mb-4">
+              <button
+                onClick={() => navigate(-1)}
+                className="btn ac_btn mr-4"
+                style={{ marginRight: '15px' }}
+              >
+                &larr; Back
+              </button>
+              <h1 className="display-4"> Portfolio </h1>
+            </div>
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>
