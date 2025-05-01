@@ -25,10 +25,10 @@ export const Portfolio = () => {
           {dataportfolio.map((data, i) => {
             return (
               <div key={i} className="po_item">
-                <img src={getOptimizedImagePath(data.img)} alt="" />
+                <img src={getOptimizedImagePath(data.img, true)} alt="" />
                 <div className="content">
                   <p>{data.description}</p>
-                  <Link to={`/portfolio/${data.id}`} > view project</Link>
+                  <Link to={`/portfolio/${data.id}`}> view project</Link>
                 </div>
               </div>
             );

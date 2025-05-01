@@ -15,7 +15,8 @@ export const PortfolioDetails = () => {
   const [loadedImages, setLoadedImages] = useState({});
 
   const handleImageClick = (imgSrc) => {
-    setFullscreenImage(imgSrc);
+    // Use original image for fullscreen view
+    setFullscreenImage(getOptimizedImagePath(imgSrc, false));
   };
 
   const handleClose = () => {
@@ -31,7 +32,7 @@ export const PortfolioDetails = () => {
       {fullscreenImage && (
         <div className="fullscreen-overlay" onClick={handleClose}>
           <span className="close-button">&times;</span>
-          <img src={getOptimizedImagePath(fullscreenImage)} alt="" className="fullscreen-image" />
+          <img src={fullscreenImage} alt="" className="fullscreen-image" />
         </div>
       )}
       <Container className="About-header">
@@ -57,7 +58,7 @@ export const PortfolioDetails = () => {
         </Row>
         <div className="mb-5 po_items_ho">
           {data.map((data, i) => {
-            const optimizedSrc = getOptimizedImagePath(data.img);
+            const optimizedSrc = getOptimizedImagePath(data.img, true); // Use thumbnail in grid
             return (
               <div key={i} className="po_item">
                 {!loadedImages[optimizedSrc] && <div className="image-placeholder" />}

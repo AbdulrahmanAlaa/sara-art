@@ -1,10 +1,17 @@
-export const getOptimizedImagePath = (originalPath) => {
-    // If the path is already a webpack processed URL, return it as-is
+export const getOptimizedImagePath = (originalPath, isThumbnail = false) => {
+    // If path is already processed by webpack, return as-is
     if (originalPath.startsWith('http') || originalPath.includes('/static/media/')) {
         return originalPath;
     }
 
-    // Only convert direct file paths
-    const webpPath = originalPath.replace(/\.(jpg|jpeg|png|gif)$/i, '.webp');
-    return webpPath;
+    // For thumbnails, insert 'thumbnails/' into the path
+    if (isThumbnail) {
+        const pathParts = originalPath.split('/');
+        const filename = pathParts.pop();
+        const thumbnailPath = [...pathParts, 'thumbnails', filename.replace(/\.[^.]+$/, '.jpg')].join('/');
+        return thumbnailPath;
+    }
+
+    // Return original path for full-size images
+    return originalPath;
 };
