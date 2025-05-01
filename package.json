@@ -3,10 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "homepage": "https://www.sara-art.uk/",
-    "type": "module",
     "scripts": {
         "start": "react-scripts start",
-        "build": "yarn optimize-images && react-scripts build",
+        "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "predeploy": "yarn build && cp build/index.html build/404.html && cp ./CNAME build/CNAME",
