@@ -8,85 +8,44 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const projectRoot = path.join(__dirname, '..');
 
-// Configure Sharp to handle large images
-sharp.cache(false);
-sharp.concurrency(1);
-
-const processImage = async (filePath, outputPath) => {
+async function processImage(inputPath) {
     try {
-        let sharpInstance = sharp(filePath, {
-            limitInputPixels: false // Remove pixel limit
-        });
+        const ext = path.extname(inputPath).toLowerCase();
+        if (!['.jpg', '.jpeg', '.png'].includes(ext)) return;
 
-        const metadata = await sharpInstance.metadata();
+        const outputPath = inputPath.replace(/\.(jpg|jpeg|png)$/i, '.webp');
 
-        // If image is very large, resize it first
-        if (metadata.width * metadata.height > 40000000) { // 40MP threshold
-            const scale = Math.sqrt(40000000 / (metadata.width * metadata.height));
-            const newWidth = Math.floor(metadata.width * scale);
-            const newHeight = Math.floor(metadata.height * scale);
-
-            sharpInstance = sharpInstance.resize(newWidth, newHeight, {
-                fit: 'inside'
-            });
-        } else if (metadata.width > 1200 || metadata.height > 1200) {
-            sharpInstance = sharpInstance.resize(1200, 1200, {
-                fit: 'inside',
-                withoutEnlargement: true
-            });
-        }
-
-        await sharpInstance
-            .webp({
-                quality: 80,
-                effort: 6,
-                lossless: false
-            })
+        await sharp(inputPath)
+            .webp({ quality: 80 })
             .toFile(outputPath);
 
-        return true;
-    } catch (err) {
-        console.error(`Error processing ${path.basename(filePath)}:`, err.message);
-        return false;
+        console.log(`Converted ${inputPath} to WebP`);
+    } catch (error) {
+        console.error(`Error processing ${inputPath}:`, error);
     }
-};
+}
 
-const processImages = async () => {
-    const imageDir = path.join(__dirname, '../src/assets/images');
+async function walkDirectory(dir) {
+    const files = await fs.readdir(dir);
 
-    try {
-        const processDirectory = async (dirPath) => {
-            const entries = await fs.readdir(dirPath, { withFileTypes: true });
+    for (const file of files) {
+        const filePath = path.join(dir, file);
+        const stat = await fs.stat(filePath);
 
-            for (const entry of entries) {
-                const fullPath = path.join(dirPath, entry.name);
-
-                if (entry.isDirectory()) {
-                    await processDirectory(fullPath);
-                    continue;
-                }
-
-                if (!/\.(jpg|jpeg|png)$/i.test(entry.name)) continue;
-
-                const outputPath = fullPath.replace(/\.[^.]+$/, '.webp');
-                const result = await processImage(fullPath, outputPath);
-
-                if (result) {
-                    console.log(`Processed: ${path.relative(imageDir, fullPath)} -> ${path.basename(outputPath)}`);
-                }
-            }
-        };
-
-        await processDirectory(imageDir);
-
-    } catch (err) {
-        console.error('Error reading directory:', err);
-        process.exit(1);
+        if (stat.isDirectory()) {
+            await walkDirectory(filePath);
+        } else {
+            await processImage(filePath);
+        }
     }
-};
+}
 
-processImages().catch(err => {
-    console.error('Unhandled error:', err);
-    process.exit(1);
-});
+async function main() {
+    const imagesDir = path.join(projectRoot, 'src', 'assets', 'images');
+    await walkDirectory(imagesDir);
+    console.log('Image optimization complete');
+}
+
+main().catch(console.error);
