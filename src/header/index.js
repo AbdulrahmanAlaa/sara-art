@@ -3,7 +3,6 @@ import "./style.css";
 import { VscGrabber, VscClose } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import { logotext, socialprofils } from "../content_option";
-import Themetoggle from "../components/themetoggle";
 import img from "../assets/images/logo.png";
 const Headermain = () => {
   const [isActive, setActive] = useState("false");
@@ -21,11 +20,9 @@ const Headermain = () => {
             <img width={50} height={50} src={img} alt="Sara Art Logo" />
           </Link>
           <div className="d-flex align-items-center">
-            <Themetoggle />
             <button className="menu__button  nav_ac" onClick={handleToggle}>
               {!isActive ? <VscClose /> : <VscGrabber />}
             </button>
-
           </div>
         </div>
 
