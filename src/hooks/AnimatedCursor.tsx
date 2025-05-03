@@ -135,7 +135,6 @@ function CursorCore({
     const endY = useRef(0);
 
     const onMouseMove = useCallback(({ clientX, clientY }: MouseEvent) => {
-        setCoords({ x: clientX, y: clientY });
         if (cursorInnerRef.current) {
             cursorInnerRef.current.style.top = `${clientY}px`;
             cursorInnerRef.current.style.left = `${clientX}px`;
@@ -147,17 +146,23 @@ function CursorCore({
     const animateOuterCursor = useCallback(
         (time: number) => {
             if (previousTimeRef.current !== undefined) {
-                coords.x += (endX.current - coords.x) / trailingSpeed;
-                coords.y += (endY.current - coords.y) / trailingSpeed;
+                const deltaX = (endX.current - coords.x) / trailingSpeed;
+                const deltaY = (endY.current - coords.y) / trailingSpeed;
+
+                const newX = coords.x + deltaX;
+                const newY = coords.y + deltaY;
+
                 if (cursorOuterRef.current) {
-                    cursorOuterRef.current.style.top = `${coords.y}px`;
-                    cursorOuterRef.current.style.left = `${coords.x}px`;
+                    cursorOuterRef.current.style.top = `${newY}px`;
+                    cursorOuterRef.current.style.left = `${newX}px`;
                 }
+
+                setCoords({ x: newX, y: newY });
             }
             previousTimeRef.current = time;
             requestRef.current = requestAnimationFrame(animateOuterCursor);
         },
-        [trailingSpeed, coords]
+        [coords, trailingSpeed]
     );
 
     useEffect(() => {
@@ -207,79 +212,23 @@ function CursorCore({
 
     useEffect(() => {
         if (isVisible) {
-            if (cursorInnerRef.current) {
-                cursorInnerRef.current.style.opacity = '1';
-            }
-            if (cursorOuterRef.current) {
-                cursorOuterRef.current.style.opacity = '1';
-            }
+            if (cursorInnerRef.current) cursorInnerRef.current.style.opacity = '1';
+            if (cursorOuterRef.current) cursorOuterRef.current.style.opacity = '1';
         } else {
-            if (cursorInnerRef.current) {
-                cursorInnerRef.current.style.opacity = '0';
-            }
-            if (cursorOuterRef.current) {
-                cursorOuterRef.current.style.opacity = '0';
-            }
+            if (cursorInnerRef.current) cursorInnerRef.current.style.opacity = '0';
+            if (cursorOuterRef.current) cursorOuterRef.current.style.opacity = '0';
         }
     }, [isVisible]);
-
-    useEffect(() => {
-        const clickableEls = document.querySelectorAll(clickables.join(','));
-
-        clickableEls.forEach((el) => {
-            (el as HTMLElement).style.cursor = 'none';
-
-            el.addEventListener('mouseover', () => {
-                setIsActive(true);
-            });
-            el.addEventListener('click', () => {
-                setIsActive(true);
-                setIsActiveClickable(false);
-            });
-            el.addEventListener('mousedown', () => {
-                setIsActiveClickable(true);
-            });
-            el.addEventListener('mouseup', () => {
-                setIsActive(true);
-            });
-            el.addEventListener('mouseout', () => {
-                setIsActive(false);
-                setIsActiveClickable(false);
-            });
-        });
-
-        return () => {
-            clickableEls.forEach((el) => {
-                el.removeEventListener('mouseover', () => {
-                    setIsActive(true);
-                });
-                el.removeEventListener('click', () => {
-                    setIsActive(true);
-                    setIsActiveClickable(false);
-                });
-                el.removeEventListener('mousedown', () => {
-                    setIsActiveClickable(true);
-                });
-                el.removeEventListener('mouseup', () => {
-                    setIsActive(true);
-                });
-                el.removeEventListener('mouseout', () => {
-                    setIsActive(false);
-                    setIsActiveClickable(false);
-                });
-            });
-        };
-    }, [isActive, clickables]);
 
     const styles = {
         cursorInner: {
             zIndex: 999,
             display: 'block',
-            position: 'fixed' as const,
+            position: 'fixed',
             borderRadius: '50%',
             width: innerSize,
             height: innerSize,
-            pointerEvents: 'none' as const,
+            pointerEvents: 'none',
             backgroundColor: `rgba(${color}, 1)`,
             ...(innerStyle && innerStyle),
             transition: 'opacity 0.15s ease-in-out, transform 0.25s ease-in-out'
@@ -287,9 +236,9 @@ function CursorCore({
         cursorOuter: {
             zIndex: 999,
             display: 'block',
-            position: 'fixed' as const,
+            position: 'fixed',
             borderRadius: '50%',
-            pointerEvents: 'none' as const,
+            pointerEvents: 'none',
             width: outerSize,
             height: outerSize,
             backgroundColor: `rgba(${color}, ${outerAlpha})`,
@@ -303,19 +252,41 @@ function CursorCore({
 
     return (
         <>
-            <div ref={cursorOuterRef} style={styles.cursorOuter} />
-            <div ref={cursorInnerRef} style={styles.cursorInner} />
+            <div ref={cursorOuterRef} style={styles.cursorOuter as any} />
+            <div ref={cursorInnerRef} style={styles.cursorInner as any} />
         </>
     );
 }
 
 interface AnimatedCursorProps extends CursorCoreProps { }
 
-function AnimatedCursor(props: AnimatedCursorProps): JSX.Element {
+function AnimatedCursor({
+    outerStyle,
+    innerStyle,
+    color,
+    outerAlpha,
+    innerSize,
+    innerScale,
+    outerSize,
+    outerScale,
+    trailingSpeed,
+    clickables
+}: AnimatedCursorProps): JSX.Element {
     if (typeof navigator !== 'undefined' && IsDevice.any()) {
-        return <></>;
+        return <React.Fragment></React.Fragment>
     }
-    return <CursorCore {...props} />;
+    return <CursorCore
+        outerStyle={outerStyle}
+        innerStyle={innerStyle}
+        color={color}
+        outerAlpha={outerAlpha}
+        innerSize={innerSize}
+        innerScale={innerScale}
+        outerSize={outerSize}
+        outerScale={outerScale}
+        trailingSpeed={trailingSpeed}
+        clickables={clickables}
+    />;
 }
 
 export default AnimatedCursor;
