@@ -1,79 +1,4 @@
-const logotext = "SARA";
-const meta = {
-    title: "Sara Mohammed",
-    description: "I’m Sara Mohammed illustrator  _ Character designer, currently living in Dubai, ",
-};
-
-const introdata = {
-    title: "I’m Sara Mohammed",
-    animated: {
-        first: "I love illustrating",
-        second: "I make cool characters",
-        third: "I love bringing characters and worlds to life.",
-    },
-    description: "I’m a character designer and illustrator based in Dubai. I love creating characters and bringing them to life through my illustrations.\
-     I have a passion for storytelling and I believe that every character has a story to tell.",
-    your_img_url: "https://drive.google.com/file/d/1kr2SLTrTtBbq9e6ucNI-c1u800pGaM1B/view?usp=sharing",
-};
-
-const dataabout = {
-    title: "abit about my self",
-    aboutme: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis dolor id ligula semper elementum feugiat pretium nulla. Nunc non commodo dolor. Nunc mollis dignissim facilisis. Morbi ut magna ultricies.",
-};
-const worktimeline = [{
-    jobtitle: "Designer of week",
-    where: "YAdfi",
-    date: "2020",
-},
-{
-    jobtitle: "Designer of week",
-    where: "Jamalya",
-    date: "2019",
-},
-{
-    jobtitle: "Designer of week",
-    where: "ALquds",
-    date: "2019",
-},
-];
-
-const skills = [{
-    name: "Python",
-    value: 90,
-},
-{
-    name: "Djano",
-    value: 85,
-},
-{
-    name: "Javascript",
-    value: 80,
-},
-{
-    name: "React",
-    value: 60,
-},
-{
-    name: "Jquery",
-    value: 85,
-},
-];
-
-const services = [{
-    title: "UI & UX Design",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
-},
-{
-    title: "Mobile Apps",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
-},
-{
-    title: "Wordpress Design",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
-},
-];
-
-// balerina
+// Import all images first
 import balerina from "./assets/images/projects/balerina/1.png";
 import balerina2 from "./assets/images/projects/balerina/2.png";
 import balerina3 from "./assets/images/projects/balerina/3.png";
@@ -193,429 +118,500 @@ import whales_in_the_sky1 from "./assets/images/projects/whales in the sky/1.PNG
 import whales_in_the_sky2 from "./assets/images/projects/whales in the sky/2.PNG";
 import whales_in_the_sky3 from "./assets/images/projects/whales in the sky/3.JPG";
 import whales_in_the_sky4 from "./assets/images/projects/whales in the sky/4.JPG";
+
+const logotext = "SARA";
+const meta = {
+    title: "Sara Mohammed",
+    description: "I'm Sara Mohammed illustrator  _ Character designer, currently living in Dubai, "
+};
+
+const introdata = {
+    title: "I'm Sara Mohammed",
+    animated: {
+        first: "I love illustrating",
+        second: "I make cool characters",
+        third: "I love bringing characters and worlds to life."
+    },
+    description: "I'm a character designer and illustrator based in Dubai. I love creating characters " +
+        "and bringing them to life through my illustrations. I have a passion for storytelling " +
+        "and I believe that every character has a story to tell.",
+    your_img_url: "https://drive.google.com/file/d/1kr2SLTrTtBbq9e6ucNI-c1u800pGaM1B/view?usp=sharing"
+};
+
+const dataabout = {
+    title: "abit about my self",
+    aboutme: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis dolor id ligula semper elementum feugiat pretium nulla. Nunc non commodo dolor. Nunc mollis dignissim facilisis. Morbi ut magna ultricies."
+};
+const worktimeline = [
+    {
+        jobtitle: "Designer of week",
+        where: "YAdfi",
+        date: "2020"
+    },
+    {
+        jobtitle: "Designer of week",
+        where: "Jamalya",
+        date: "2019"
+    },
+    {
+        jobtitle: "Designer of week",
+        where: "ALquds",
+        date: "2019"
+    }
+];
+
+const skills = [
+    {
+        name: "Python",
+        value: 90
+    },
+    {
+        name: "Djano",
+        value: 85
+    },
+    {
+        name: "Javascript",
+        value: 80
+    },
+    {
+        name: "React",
+        value: 60
+    },
+    {
+        name: "Jquery",
+        value: 85
+    }
+];
+
+const services = [
+    {
+        title: "UI & UX Design",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin."
+    },
+    {
+        title: "Mobile Apps",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin."
+    },
+    {
+        title: "Wordpress Design",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin."
+    }
+];
+
 const dataportfolio = [
     {
         id: '9',
         img: jawab1,
         description: "Jawab",
-        link: "#",
+        link: "#"
     },
     {
         id: '6',
         img: gang1,
         description: "ITI Gang",
-        link: "#",
+        link: "#"
     },
     {
         id: '8',
         img: ghet_al_regal1,
         description: "Ghet Al Regal",
-        link: "#",
+        link: "#"
     },
     {
         id: '12',
         img: lost_city1,
         description: "Lost City",
-        link: "#",
+        link: "#"
     },
     {
         id: '3',
         img: china1,
         description: "China",
-        link: "#",
+        link: "#"
     },
     {
         id: '4',
         img: diamondbox1,
         description: "Diamond Box",
-        link: "#",
+        link: "#"
     },
     {
         id: '17',
         img: whales_in_the_sky1,
         description: "Whales In The Sky",
-        link: "#",
+        link: "#"
     },
-
     {
         id: '2',
         img: bedr,
         description: "Bedro",
-        link: "#",
+        link: "#"
     },
     {
         id: '1',
         img: balerina2,
         description: "Balerina",
-        link: "#",
+        link: "#"
     },
     {
         id: '5',
         img: emily4,
         description: "Emily",
-        link: "#",
+        link: "#"
     },
-
     {
         id: '7',
         img: gentle_meao1,
         description: "Gentle Meao",
-        link: "#",
+        link: "#"
     },
-
     {
         id: '10',
         img: king_frog1,
         description: "King Frog",
-        link: "#",
+        link: "#"
     },
     {
         id: '16',
         img: wedding1,
         description: "Wedding",
-        link: "#",
+        link: "#"
     },
     {
         id: '11',
         img: koshary_woman1,
         description: "Koshary Woman",
-        link: "#",
+        link: "#"
     },
-
     {
         id: '13',
         img: nour_and_the_forest2,
         description: "Nour & The Forest",
-        link: "#",
+        link: "#"
     },
-
     {
         id: '15',
         img: stress1,
         description: "Stress",
-        link: "#",
+        link: "#"
     },
-
     {
         id: '14',
         img: spooky_luna1,
         description: "Spooky Luna",
-        link: "#",
-    },
-
+        link: "#"
+    }
 ];
 const dataportfolioDetails = {
     '1': [
         {
-            img: balerina,
+            img: balerina
         },
         {
-            img: balerina2,
+            img: balerina2
         },
         {
-            img: balerina3,
-        },
+            img: balerina3
+        }
     ],
     '2': [
         {
-            img: bedr,
+            img: bedr
         },
         {
-            img: bedr2,
+            img: bedr2
         },
         {
-            img: bedr3,
+            img: bedr3
         },
         {
-            img: bedr4,
+            img: bedr4
         },
         {
-            img: bedr5,
-        },
+            img: bedr5
+        }
     ],
     '3': [
         {
-            img: china1,
+            img: china1
         },
         {
-            img: china2,
+            img: china2
         },
         {
-            img: china3,
+            img: china3
         },
         {
-            img: china4,
+            img: china4
         },
         {
-            img: china5,
-        },
+            img: china5
+        }
     ],
     '4': [
         {
-            img: diamondbox1,
+            img: diamondbox1
         },
         {
-            img: diamondbox2,
+            img: diamondbox2
         },
         {
-            img: diamondbox3,
+            img: diamondbox3
         },
         {
-            img: diamondbox4,
+            img: diamondbox4
         },
         {
-            img: diamondbox5,
+            img: diamondbox5
         },
         {
-            img: diamondbox6,
-        },
+            img: diamondbox6
+        }
     ],
     '5': [
         {
-            img: emily1,
+            img: emily1
         },
         {
-            img: emily2,
+            img: emily2
         },
         {
-            img: emily3,
+            img: emily3
         },
         {
-            img: emily4,
-        },
+            img: emily4
+        }
     ],
     '6': [
         {
-            img: gang1,
+            img: gang1
         },
         {
-            img: gang2,
+            img: gang2
         },
         {
-            img: gang3,
+            img: gang3
         },
         {
-            img: gang4,
+            img: gang4
         },
         {
-            img: gang5,
+            img: gang5
         },
         {
-            img: gang6,
+            img: gang6
         },
         {
-            img: gang7,
+            img: gang7
         },
         {
-            img: gang8,
+            img: gang8
         },
         {
-            img: gang9,
+            img: gang9
         },
         {
-            img: gang10,
+            img: gang10
         },
         {
-            img: gang11,
+            img: gang11
         },
         {
-            img: gang12,
+            img: gang12
         },
         {
-            img: gang13,
+            img: gang13
         },
         {
-            img: gang14,
+            img: gang14
         },
         {
-            img: gang15,
+            img: gang15
         },
         {
-            img: gang16,
+            img: gang16
         },
         {
-            img: gang17,
+            img: gang17
         },
         {
-            img: gang18,
-        },
+            img: gang18
+        }
     ],
     '7': [
         {
-            img: gentle_meao1,
+            img: gentle_meao1
         },
         {
-            img: gentle_meao2,
+            img: gentle_meao2
         },
         {
-            img: gentle_meao3,
+            img: gentle_meao3
         },
         {
-            img: gentle_meao4,
+            img: gentle_meao4
         },
         {
-            img: gentle_meao5,
+            img: gentle_meao5
         },
         {
-            img: gentle_meao6,
+            img: gentle_meao6
         },
         {
-            img: gentle_meao7,
-        },
+            img: gentle_meao7
+        }
     ],
     '8': [
         {
-            img: ghet_al_regal1,
+            img: ghet_al_regal1
         },
         {
-            img: ghet_al_regal2,
+            img: ghet_al_regal2
         },
         {
-            img: ghet_al_regal3,
+            img: ghet_al_regal3
         },
         {
-            img: ghet_al_regal4,
+            img: ghet_al_regal4
         },
         {
-            img: ghet_al_regal5,
-        },
+            img: ghet_al_regal5
+        }
     ],
     '9': [
         {
-            img: jawab1,
+            img: jawab1
         },
         {
-            img: jawab2,
+            img: jawab2
         },
         {
-            img: jawab3,
+            img: jawab3
         },
         {
-            img: jawab4,
-        },
+            img: jawab4
+        }
     ],
     '10': [
         {
-            img: king_frog1,
+            img: king_frog1
         },
         {
-            img: king_frog2,
-        },
+            img: king_frog2
+        }
     ],
     '11': [
         {
-            img: koshary_woman,
+            img: koshary_woman
         },
         {
-            img: koshary_woman1,
+            img: koshary_woman1
         },
         {
-            img: koshary_woman2,
-        },
+            img: koshary_woman2
+        }
     ],
     '12': [
         {
-            img: lost_city1,
+            img: lost_city1
         },
         {
-            img: lost_city2,
+            img: lost_city2
         },
         {
-            img: lost_city3,
+            img: lost_city3
         },
         {
-            img: lost_city4,
+            img: lost_city4
         },
         {
-            img: lost_city5,
+            img: lost_city5
         },
         {
-            img: lost_city6,
+            img: lost_city6
         },
         {
-            img: lost_city7,
-        },
+            img: lost_city7
+        }
     ],
     '13': [
         {
-            img: nour_and_the_forest1,
+            img: nour_and_the_forest1
         },
         {
-            img: nour_and_the_forest2,
+            img: nour_and_the_forest2
         },
         {
-            img: nour_and_the_forest3,
+            img: nour_and_the_forest3
         },
         {
-            img: nour_and_the_forest4,
-        },
+            img: nour_and_the_forest4
+        }
     ],
     '14': [
         {
-            img: spooky_luna1,
+            img: spooky_luna1
         },
         {
-            img: spooky_luna2,
+            img: spooky_luna2
         },
         {
-            img: spooky_luna3,
+            img: spooky_luna3
         },
         {
-            img: spooky_luna4,
-        },
+            img: spooky_luna4
+        }
     ],
     '15': [
         {
-            img: stress1,
+            img: stress1
         },
         {
-            img: stress2,
+            img: stress2
         },
         {
-            img: stress3,
+            img: stress3
         },
         {
-            img: stress4,
-        },
+            img: stress4
+        }
     ],
     '16': [
         {
-            img: wedding1,
+            img: wedding1
         },
         {
-            img: wedding2,
-        },
+            img: wedding2
+        }
     ],
     '17': [
         {
-            img: whales_in_the_sky1,
+            img: whales_in_the_sky1
         },
         {
-            img: whales_in_the_sky2,
+            img: whales_in_the_sky2
         },
         {
-            img: whales_in_the_sky3,
+            img: whales_in_the_sky3
         },
         {
-            img: whales_in_the_sky4,
-        },
-    ],
-
+            img: whales_in_the_sky4
+        }
+    ]
 };
 const contactConfig = {
     YOUR_EMAIL: "sarahmohammed21fci@gmail.com",
-    description: "I’m a character designer and illustrator based in Dubai. I love creating characters and bringing them to life through my illustrations.\
-     I have a passion for storytelling and I believe that every character has a story to tell.",
-    // creat an emailjs.com account 
-    // check out this tutorial https://www.emailjs.com/docs/examples/reactjs/
+    description: "I'm a character designer and illustrator based in Dubai. I love creating characters " +
+        "and bringing them to life through my illustrations. I have a passion for storytelling " +
+        "and I believe that every character has a story to tell.",
     YOUR_SERVICE_ID: "service_wlbc7yn",
-    YOUR_TEMPLATE_ID: "template_70bwbio",
+    YOUR_TEMPLATE_ID: "template_70bwbio"
 };
 
 const socialprofils = {
     instagram: "https://www.instagram.com/sarahmohammed_art/",
     linkedin: "https://www.linkedin.com/in/sarah-mohammed-25203419b/",
-    behance: "https://www.behance.net/sarahmohammmed934",
+    behance: "https://www.behance.net/sarahmohammmed934"
 };
 export {
     meta,
@@ -628,5 +624,5 @@ export {
     contactConfig,
     socialprofils,
     dataportfolioDetails,
-    logotext,
+    logotext
 };

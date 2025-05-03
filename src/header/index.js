@@ -18,7 +18,7 @@ const Headermain = () => {
       <header className="fixed-top site__header">
         <div className="d-flex align-items-center justify-content-between">
           <Link className="navbar-brand nav_ac" to="/">
-            <img width={50} height={50} src={img} />
+            <img width={50} height={50} src={img} alt="Sara Art Logo" />
           </Link>
           <div className="d-flex align-items-center">
             <Themetoggle />

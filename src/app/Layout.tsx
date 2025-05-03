@@ -4,7 +4,7 @@ import Headermain from "../header";
 import { Socialicons } from "../components/socialicons";
 import AnimatedCursor from "../hooks/AnimatedCursor";
 
-export default function Layout() {
+const Layout: React.FC = () => {
     return (
         <>
             <div className="cursor__dot">
@@ -15,13 +15,18 @@ export default function Layout() {
                     outerAlpha={0.4}
                     innerScale={0.7}
                     outerScale={5}
-                />
-            </div>
+                    outerStyle={undefined}
+                    innerStyle={undefined}
+                    trailingSpeed={undefined}
+                    clickables={undefined}
+                /></div>
             <Headermain />
             <div className="s_c">
-                <Outlet />
                 <Socialicons />
+                <Outlet />
             </div>
         </>
     );
-}
+};
+
+export default Layout;

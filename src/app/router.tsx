@@ -26,10 +26,6 @@ export const router = createBrowserRouter([
                 path: "contact",
                 element: <ContactUs />,
             },
-            {
-                path: "*",
-                element: <Home />,
-            },
         ],
     },
 ], {
