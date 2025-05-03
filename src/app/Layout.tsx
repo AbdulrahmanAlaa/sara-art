@@ -22,8 +22,8 @@ const Layout: React.FC = () => {
                 /></div>
             <Headermain />
             <div className="s_c">
-                <Socialicons />
                 <Outlet />
+                <Socialicons />
             </div>
         </>
     );

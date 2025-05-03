@@ -1,15 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import { VscGrabber, VscClose } from "react-icons/vsc";
 import { Link } from "react-router-dom";
-import { logotext, socialprofils } from "../content_option";
 import img from "../assets/images/logo.png";
-const Headermain = () => {
-  const [isActive, setActive] = useState("false");
 
-  const handleToggle = () => {
+const CloseIcon = VscClose as unknown as React.FC;
+const GrabberIcon = VscGrabber as unknown as React.FC;
+const Headermain: React.FC = () => {
+  const [isActive, setActive] = useState<boolean>(false);
+  useEffect(() => {
+    // Prevent scroll when menu is open
+    if (isActive) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto'; // Cleanup on unmount
+    };
+  }, [isActive]);
+
+  const handleToggle = (): void => {
     setActive(!isActive);
-    document.body.classList.toggle("ovhidden");
+    // Only prevent scroll when menu is open
+    if (isActive) {
+      document.body.style.overflow = 'auto';
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
   };
 
   return (
@@ -21,12 +39,12 @@ const Headermain = () => {
           </Link>
           <div className="d-flex align-items-center">
             <button className="menu__button  nav_ac" onClick={handleToggle}>
-              {!isActive ? <VscClose /> : <VscGrabber />}
+              {isActive ? <CloseIcon /> : <GrabberIcon />}
             </button>
           </div>
         </div>
 
-        <div className={`site__navigation ${!isActive ? "menu__opend" : ""}`}>
+        <div className={`site__navigation ${isActive ? "menu__opend" : ""}`}>
           <div className="bg__menu h-100">
             <div className="menu__wrapper">
               <div className="menu__container p-3">
@@ -44,21 +62,12 @@ const Headermain = () => {
               </div>
             </div>
           </div>
-          <div className="menu_footer d-flex flex-column flex-md-row justify-content-between align-items-md-center position-absolute w-100 p-3">
-            <div className="d-flex">
-              <a href={socialprofils.facebook}>Facebook</a>
-              <a href={socialprofils.github}>Github</a>
-              <a href={socialprofils.twitter}>Twitter</a>
-            </div>
-            <p className="copyright m-0">copyright __ {logotext}</p>
-          </div>
         </div>
       </header>
       <div className="br-top"></div>
       <div className="br-bottom"></div>
       <div className="br-left"></div>
       <div className="br-right"></div>
-
     </>
   );
 };
