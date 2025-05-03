@@ -5,9 +5,17 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { meta } from "../../content_option";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 import { contactConfig } from "../../content_option";
-
+interface IContactFormData {
+  email: string;
+  name: string;
+  message: string;
+  loading: boolean;
+  show: boolean;
+  alertmessage: string;
+  variant: string;
+}
 export const ContactUs = () => {
-  const [formData, setFormdata] = useState({
+  const [formData, setFormdata] = useState<IContactFormData>({
     email: "",
     name: "",
     message: "",
@@ -19,7 +27,7 @@ export const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormdata({ loading: true });
+    setFormdata((data) => ({ ...data, loading: true }));
 
     const templateParams = {
       email: formData.email,
@@ -37,20 +45,26 @@ export const ContactUs = () => {
       .then(
         (result) => {
           console.log(result.text);
-          setFormdata({
+          setFormdata(prevData => ({
+            ...prevData,
+            email: "",
+            name: "",
+            message: "",
             loading: false,
-            alertmessage: "SUCCESS! ,Thankyou for your messege",
+            alertmessage: "SUCCESS! Thank you for your message",
             variant: "success",
-            show: true,
-          });
+            show: true
+          }));
         },
         (error) => {
           console.log(error.text);
-          setFormdata({
+          setFormdata(prevData => ({
+            ...prevData,
             alertmessage: `Faild to send!,${error.text}`,
             variant: "danger",
+            loading: false,
             show: true,
-          });
+          }));
           document.getElementsByClassName("co_alert")[0].scrollIntoView();
         }
       );
@@ -84,7 +98,7 @@ export const ContactUs = () => {
               variant={formData.variant}
               className={`rounded-0 co_alert ${formData.show ? "d-block" : "d-none"
                 }`}
-              onClose={() => setFormdata({ show: false })}
+              onClose={() => setFormdata(prevData => ({ ...prevData, show: false }))}
               dismissible
             >
               <p className="my-0">{formData.alertmessage}</p>
@@ -97,15 +111,6 @@ export const ContactUs = () => {
               <a href={`mailto:${contactConfig.YOUR_EMAIL}`}>
                 {contactConfig.YOUR_EMAIL}
               </a>
-              <br />
-              <br />
-              {contactConfig.hasOwnProperty("YOUR_FONE") ? (
-                <p>
-                  <strong>Phone:</strong> {contactConfig.YOUR_FONE}
-                </p>
-              ) : (
-                ""
-              )}
             </address>
             <p>{contactConfig.description}</p>
           </Col>
@@ -142,7 +147,7 @@ export const ContactUs = () => {
                 id="message"
                 name="message"
                 placeholder="Message"
-                rows="5"
+                rows={5}
                 value={formData.message}
                 onChange={handleChange}
                 required
