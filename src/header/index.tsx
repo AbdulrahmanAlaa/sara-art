@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { VscGrabber, VscClose } from "react-icons/vsc";
 import { Link } from "react-router-dom";
-import img from "../assets/images/logo.png";
+import img from "../assets/images/logo.webp";
 
 const CloseIcon = VscClose as unknown as React.FC;
 const GrabberIcon = VscGrabber as unknown as React.FC;

@@ -1,123 +1,123 @@
 // Import all images first
-import balerina from "./assets/images/projects/balerina/1.png";
-import balerina2 from "./assets/images/projects/balerina/2.png";
-import balerina3 from "./assets/images/projects/balerina/3.png";
+import balerina from "./assets/images/compressed/balerina/1.webp";
+import balerina2 from "./assets/images/compressed/balerina/2.webp";
+import balerina3 from "./assets/images/compressed/balerina/3.webp";
 
 //bedro
-import bedr from "./assets/images/projects/bedro/1.PNG";
-import bedr2 from "./assets/images/projects/bedro/2.PNG";
-import bedr3 from "./assets/images/projects/bedro/3.PNG";
-import bedr4 from "./assets/images/projects/bedro/4.PNG";
-import bedr5 from "./assets/images/projects/bedro/5.PNG";
+import bedr from "./assets/images/compressed/bedro/1.webp";
+import bedr2 from "./assets/images/compressed/bedro/2.webp";
+import bedr3 from "./assets/images/compressed/bedro/3.webp";
+import bedr4 from "./assets/images/compressed/bedro/4.webp";
+import bedr5 from "./assets/images/compressed/bedro/5.webp";
 
 // china 
-import china1 from "./assets/images/projects/china/1.JPG";
-import china2 from "./assets/images/projects/china/2.JPG";
-import china3 from "./assets/images/projects/china/3.JPG";
-import china4 from "./assets/images/projects/china/4.JPG";
-import china5 from "./assets/images/projects/china/5.JPG";
+import china1 from "./assets/images/compressed/china/1.webp";
+import china2 from "./assets/images/compressed/china/2.webp";
+import china3 from "./assets/images/compressed/china/3.webp";
+import china4 from "./assets/images/compressed/china/4.webp";
+import china5 from "./assets/images/compressed/china/5.webp";
 
 // diamond box
-import diamondbox1 from "./assets/images/projects/diamond_box/1.png";
-import diamondbox2 from "./assets/images/projects/diamond_box/2.jpg";
-import diamondbox3 from "./assets/images/projects/diamond_box/3.png";
-import diamondbox4 from "./assets/images/projects/diamond_box/4.png";
-import diamondbox5 from "./assets/images/projects/diamond_box/5.png";
-import diamondbox6 from "./assets/images/projects/diamond_box/6.png";
+import diamondbox1 from "./assets/images/compressed/diamond_box/1.webp";
+import diamondbox2 from "./assets/images/compressed/diamond_box/2.webp";
+import diamondbox3 from "./assets/images/compressed/diamond_box/3.webp";
+import diamondbox4 from "./assets/images/compressed/diamond_box/4.webp";
+import diamondbox5 from "./assets/images/compressed/diamond_box/5.webp";
+import diamondbox6 from "./assets/images/compressed/diamond_box/6.webp";
 
 // emily
-import emily1 from "./assets/images/projects/emily/1.png";
-import emily2 from "./assets/images/projects/emily/2.png";
-import emily3 from "./assets/images/projects/emily/3.png";
-import emily4 from "./assets/images/projects/emily/4.gif";
+import emily1 from "./assets/images/compressed/emily/1.webp";
+import emily2 from "./assets/images/compressed/emily/2.webp";
+import emily3 from "./assets/images/compressed/emily/3.webp";
+import emily4 from "./assets/images/compressed/emily/4.webp";
 
 // gang 
-import gang1 from "./assets/images/projects/gang/All 2.png";
-import gang2 from "./assets/images/projects/gang/Amgad.png";
-import gang3 from "./assets/images/projects/gang/Amola.png";
-import gang4 from "./assets/images/projects/gang/Ash.png";
-import gang5 from "./assets/images/projects/gang/Eman.png";
-import gang6 from "./assets/images/projects/gang/Lofi.png";
-import gang7 from "./assets/images/projects/gang/Mahmoud.png";
-import gang8 from "./assets/images/projects/gang/Marium.png";
-import gang9 from "./assets/images/projects/gang/Nahla.png";
-import gang10 from "./assets/images/projects/gang/Namola.png";
-import gang11 from "./assets/images/projects/gang/Nemo.png";
-import gang12 from "./assets/images/projects/gang/Omnia.png";
-import gang13 from "./assets/images/projects/gang/Rony.png";
-import gang14 from "./assets/images/projects/gang/Shimo.png";
-import gang15 from "./assets/images/projects/gang/Salma.png";
-import gang16 from "./assets/images/projects/gang/Sara.png";
-import gang17 from "./assets/images/projects/gang/Tamtam.png";
-import gang18 from "./assets/images/projects/gang/Tete.png";
+import gang1 from "./assets/images/compressed/gang/1.webp";
+import gang2 from "./assets/images/compressed/gang/2.webp";
+import gang3 from "./assets/images/compressed/gang/3.webp";
+import gang4 from "./assets/images/compressed/gang/4.webp";
+import gang5 from "./assets/images/compressed/gang/5.webp";
+import gang6 from "./assets/images/compressed/gang/6.webp";
+import gang7 from "./assets/images/compressed/gang/7.webp";
+import gang8 from "./assets/images/compressed/gang/8.webp";
+import gang9 from "./assets/images/compressed/gang/9.webp";
+import gang10 from "./assets/images/compressed/gang/10.webp";
+import gang11 from "./assets/images/compressed/gang/11.webp";
+import gang12 from "./assets/images/compressed/gang/12.webp";
+import gang13 from "./assets/images/compressed/gang/13.webp";
+import gang14 from "./assets/images/compressed/gang/14.webp";
+import gang15 from "./assets/images/compressed/gang/15.webp";
+import gang16 from "./assets/images/compressed/gang/16.webp";
+import gang17 from "./assets/images/compressed/gang/17.webp";
+import gang18 from "./assets/images/compressed/gang/18.webp";
 
 // gentle_meao 
-import gentle_meao1 from "./assets/images/projects/gentle_meao/1.jpg";
-import gentle_meao2 from "./assets/images/projects/gentle_meao/2.jpg";
-import gentle_meao3 from "./assets/images/projects/gentle_meao/3.jpg";
-import gentle_meao4 from "./assets/images/projects/gentle_meao/4.jpg";
-import gentle_meao5 from "./assets/images/projects/gentle_meao/5.jpg";
-import gentle_meao6 from "./assets/images/projects/gentle_meao/6.jpg";
-import gentle_meao7 from "./assets/images/projects/gentle_meao/7.jpg";
+import gentle_meao1 from "./assets/images/compressed/gentle_meao/1.webp";
+import gentle_meao2 from "./assets/images/compressed/gentle_meao/2.webp";
+import gentle_meao3 from "./assets/images/compressed/gentle_meao/3.webp";
+import gentle_meao4 from "./assets/images/compressed/gentle_meao/4.webp";
+import gentle_meao5 from "./assets/images/compressed/gentle_meao/5.webp";
+import gentle_meao6 from "./assets/images/compressed/gentle_meao/6.webp";
+import gentle_meao7 from "./assets/images/compressed/gentle_meao/7.webp";
 
 // ghet al regal
-import ghet_al_regal1 from "./assets/images/projects/ghet al regal/1.png";
-import ghet_al_regal2 from "./assets/images/projects/ghet al regal/2.png";
-import ghet_al_regal3 from "./assets/images/projects/ghet al regal/3.png";
-import ghet_al_regal4 from "./assets/images/projects/ghet al regal/4.png";
-import ghet_al_regal5 from "./assets/images/projects/ghet al regal/5.png";
+import ghet_al_regal1 from "./assets/images/compressed/ghet_al_regal/1.webp";
+import ghet_al_regal2 from "./assets/images/compressed/ghet_al_regal/2.webp";
+import ghet_al_regal3 from "./assets/images/compressed/ghet_al_regal/3.webp";
+import ghet_al_regal4 from "./assets/images/compressed/ghet_al_regal/4.webp";
+import ghet_al_regal5 from "./assets/images/compressed/ghet_al_regal/5.webp";
 
 // jawab
-import jawab1 from "./assets/images/projects/jawab/1.png";
-import jawab2 from "./assets/images/projects/jawab/2.png";
-import jawab3 from "./assets/images/projects/jawab/3.png";
-import jawab4 from "./assets/images/projects/jawab/4.png";
+import jawab1 from "./assets/images/compressed/jawab/1.webp";
+import jawab2 from "./assets/images/compressed/jawab/2.webp";
+import jawab3 from "./assets/images/compressed/jawab/3.webp";
+import jawab4 from "./assets/images/compressed/jawab/4.webp";
 
 // king frog 
-import king_frog1 from "./assets/images/projects/king frog/1.jpg";
-import king_frog2 from "./assets/images/projects/king frog/2.jpg";
+import king_frog1 from "./assets/images/compressed/king_frog/1.webp";
+import king_frog2 from "./assets/images/compressed/king_frog/2.webp";
 
 //koshary woman
-import koshary_woman from "./assets/images/projects/koshary woman/كشرى وومان.jpg";
-import koshary_woman1 from "./assets/images/projects/koshary woman/1.jpg";
-import koshary_woman2 from "./assets/images/projects/koshary woman/2.jpg";
+import koshary_woman from "./assets/images/compressed/koshary_woman/3.webp";
+import koshary_woman1 from "./assets/images/compressed/koshary_woman/1.webp";
+import koshary_woman2 from "./assets/images/compressed/koshary_woman/2.webp";
 
 // lost_city
-import lost_city1 from "./assets/images/projects/lost_city/1.jpg";
-import lost_city2 from "./assets/images/projects/lost_city/2.jpg";
-import lost_city3 from "./assets/images/projects/lost_city/3.jpg";
-import lost_city4 from "./assets/images/projects/lost_city/4.jpg";
-import lost_city5 from "./assets/images/projects/lost_city/5.jpg";
-import lost_city6 from "./assets/images/projects/lost_city/6.jpg";
-import lost_city7 from "./assets/images/projects/lost_city/7.jpg";
+import lost_city1 from "./assets/images/compressed/lost_city/1.webp";
+import lost_city2 from "./assets/images/compressed/lost_city/2.webp";
+import lost_city3 from "./assets/images/compressed/lost_city/3.webp";
+import lost_city4 from "./assets/images/compressed/lost_city/4.webp";
+import lost_city5 from "./assets/images/compressed/lost_city/5.webp";
+import lost_city6 from "./assets/images/compressed/lost_city/6.webp";
+import lost_city7 from "./assets/images/compressed/lost_city/7.webp";
 
 // nour and the forest
-import nour_and_the_forest1 from "./assets/images/projects/nour and the forest/sarah_vector art _illustration_day1.png";
-import nour_and_the_forest2 from "./assets/images/projects/nour and the forest/sarah day2 forming.png";
-import nour_and_the_forest3 from "./assets/images/projects/nour and the forest/isometric-04.jpg";
-import nour_and_the_forest4 from "./assets/images/projects/nour and the forest/isometric-05.jpg";
+import nour_and_the_forest3 from "./assets/images/compressed/nour_and_the_forest/1.webp";
+import nour_and_the_forest4 from "./assets/images/compressed/nour_and_the_forest/2.webp";
+import nour_and_the_forest2 from "./assets/images/compressed/nour_and_the_forest/3.webp";
+import nour_and_the_forest1 from "./assets/images/compressed/nour_and_the_forest/4.webp";
 
 //spooky luna
-import spooky_luna1 from "./assets/images/projects/spooky luna/1.jpg";
-import spooky_luna2 from "./assets/images/projects/spooky luna/2.jpg";
-import spooky_luna3 from "./assets/images/projects/spooky luna/3.jpg";
-import spooky_luna4 from "./assets/images/projects/spooky luna/4.jpg";
+import spooky_luna1 from "./assets/images/compressed/spooky_luna/1.webp";
+import spooky_luna2 from "./assets/images/compressed/spooky_luna/2.webp";
+import spooky_luna3 from "./assets/images/compressed/spooky_luna/3.webp";
+import spooky_luna4 from "./assets/images/compressed/spooky_luna/4.webp";
 
 // stress
-import stress1 from "./assets/images/projects/stress/1.PNG";
-import stress2 from "./assets/images/projects/stress/2.png";
-import stress3 from "./assets/images/projects/stress/3.png";
-import stress4 from "./assets/images/projects/stress/4.GIF";
+import stress1 from "./assets/images/compressed/stress/1.webp";
+import stress2 from "./assets/images/compressed/stress/2.webp";
+import stress3 from "./assets/images/compressed/stress/3.webp";
+import stress4 from "./assets/images/compressed/stress/4.webp";
 
 // wedding 
-import wedding1 from "./assets/images/projects/wedding/1.png";
-import wedding2 from "./assets/images/projects/wedding/2.png";
+import wedding1 from "./assets/images/compressed/wedding/1.webp";
+import wedding2 from "./assets/images/compressed/wedding/2.webp";
 
 // whales in the sky
-import whales_in_the_sky1 from "./assets/images/projects/whales in the sky/1.PNG";
-import whales_in_the_sky2 from "./assets/images/projects/whales in the sky/2.PNG";
-import whales_in_the_sky3 from "./assets/images/projects/whales in the sky/3.JPG";
-import whales_in_the_sky4 from "./assets/images/projects/whales in the sky/4.JPG";
+import whales_in_the_sky1 from "./assets/images/compressed/whales_in_the_sky/1.webp";
+import whales_in_the_sky2 from "./assets/images/compressed/whales_in_the_sky/2.webp";
+import whales_in_the_sky3 from "./assets/images/compressed/whales_in_the_sky/3.webp";
+import whales_in_the_sky4 from "./assets/images/compressed/whales_in_the_sky/4.webp";
 
 const logotext = "SARA";
 const meta = {

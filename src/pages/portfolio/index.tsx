@@ -26,7 +26,7 @@ export const Portfolio: React.FC = () => {
                     {dataportfolio.map((data: PortfolioItem, i: number) => {
                         return (
                             <div key={i} className="po_item">
-                                <img src={getOptimizedImagePath(data.img, true)} alt="" />
+                                <img src={data.img} alt="" />
                                 <div className="content">
                                     <p>{data.description}</p>
                                     <Link to={`/portfolio/${data.id}`}> view project</Link>
