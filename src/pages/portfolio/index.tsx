@@ -4,7 +4,6 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
 import { dataportfolio, meta } from "../../content_option";
 import { Link } from "react-router-dom";
-import { getOptimizedImagePath } from "../../utils/imageHelpers";
 import { PortfolioItem } from "../../types";
 
 export const Portfolio: React.FC = () => {

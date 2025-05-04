@@ -5,7 +5,6 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
 import { dataportfolioDetails, meta } from "../../content_option";
 import { useParams } from "react-router-dom";
-import { getOptimizedImagePath } from "../../utils/imageHelpers";
 
 interface LoadedImages {
     [key: string]: boolean;
@@ -16,32 +15,48 @@ export const PortfolioDetails: React.FC = () => {
     const navigate = useNavigate();
     const data = id ? dataportfolioDetails[id] : [];
     const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+    const [fullscreenLoaded, setFullscreenLoaded] = useState<boolean>(false);
     const [loadedImages, setLoadedImages] = useState<LoadedImages>({});
 
-    const handleImageClick = (imgSrc: string) => {
-        setFullscreenImage(getOptimizedImagePath(imgSrc, false));
+    const handleImageClick = (highResSrc: string) => {
+        setFullscreenImage(highResSrc);
+        setFullscreenLoaded(false); // Reset the loaded state for the fullscreen image
     };
 
     const handleClose = () => {
         setFullscreenImage(null);
+        setFullscreenLoaded(false);
     };
 
     const handleImageLoad = (imgSrc: string) => {
         setLoadedImages((prev) => ({ ...prev, [imgSrc]: true }));
     };
 
+    const handleFullscreenImageLoad = () => {
+        setFullscreenLoaded(true); // Mark the fullscreen image as loaded
+    };
+
     return (
         <HelmetProvider>
             {fullscreenImage && (
                 <div className="fullscreen-overlay" onClick={handleClose}>
-                    <span className="close-button">&times;</span>
-                    <img src={fullscreenImage} alt="" className="fullscreen-image" />
+                    <span className="close-button" onClick={handleClose}>
+                        &times;
+                    </span>
+                    {!fullscreenLoaded && <div className="fullscreen-placeholder">Loading...</div>}
+                    <img
+                        src={fullscreenImage}
+                        alt="High Resolution"
+                        className="fullscreen-image"
+                        style={{ display: fullscreenLoaded ? "block" : "none" }}
+                        onLoad={handleFullscreenImageLoad}
+                    />
                 </div>
             )}
             <Container className="About-header">
                 <Helmet>
                     <meta charSet="utf-8" />
-                    <title> Portfolio | {meta.title} </title>{" "}
+                    <title> Portfolio | {meta.title} </title>
                     <meta name="description" content={meta.description} />
                 </Helmet>
                 <Row className="mb-0 mt-3 pt-md-3">
@@ -60,28 +75,22 @@ export const PortfolioDetails: React.FC = () => {
                     </Col>
                 </Row>
                 <div className="mb-5 po_items_ho">
-                    {data.map((data, i) => {
-                        const optimizedSrc = getOptimizedImagePath(data.img, true);
-                        return (
-                            <div key={i} className="po_item">
-                                {!loadedImages[optimizedSrc] && (
-                                    <div className="image-placeholder" />
-                                )}
-                                <img
-                                    src={optimizedSrc}
-                                    alt=""
-                                    loading="lazy"
-                                    onClick={() => handleImageClick(data.img)}
-                                    onLoad={() => handleImageLoad(optimizedSrc)}
-                                    style={{
-                                        cursor: "pointer",
-                                        opacity: loadedImages[optimizedSrc] ? 1 : 0,
-                                        transition: "opacity 0.3s",
-                                    }}
-                                />
-                            </div>
-                        );
-                    })}
+                    {data.map((data, i) => (
+                        <div key={i} className="po_item">
+                            {!loadedImages[data.img] && <div className="image-placeholder" />}
+                            <img
+                                src={data.img}
+                                alt=""
+                                onClick={() => handleImageClick(data.highRes || data.img)}
+                                onLoad={() => handleImageLoad(data.img)}
+                                style={{
+                                    cursor: "pointer",
+                                    opacity: loadedImages[data.img] ? 1 : 0,
+                                    transition: "opacity 0.3s",
+                                }}
+                            />
+                        </div>
+                    ))}
                 </div>
             </Container>
         </HelmetProvider>

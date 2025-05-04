@@ -10,12 +10,8 @@
         "eject": "react-scripts eject",
         "predeploy": "yarn build && cp build/index.html build/404.html && cp ./CNAME build/CNAME",
         "deploy": "gh-pages -d build",
-        "optimize-images": "node scripts/optimize-images.js",
-        "generate-thumbnails": "node --max-old-space-size=4096 scripts/generate-thumbnails.js",
-        "prebuild": "yarn generate-thumbnails",
         "compress-images": "bash scripts/compress-images.sh",
         "remove-webp-files": "bash scripts/remove-webp-files.sh",
-        "delete-thumbnails": "bash scripts/delete-thumbnails.sh",
         "process-skipped-files": "bash scripts/process-skipped-files.sh"
     },
     "dependencies": {
