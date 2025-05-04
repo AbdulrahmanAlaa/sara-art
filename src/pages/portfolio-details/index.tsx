@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Modal } from "react-bootstrap";
 import { dataportfolioDetails, meta } from "../../content_option";
 import { useParams } from "react-router-dom";
+import { VscClose } from "react-icons/vsc"; // Import the close icon
+import ImageWithProgress from "../../components/ImageWithProgress";
 
 interface LoadedImages {
     [key: string]: boolean;
@@ -15,44 +17,45 @@ export const PortfolioDetails: React.FC = () => {
     const navigate = useNavigate();
     const data = id ? dataportfolioDetails[id] : [];
     const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
-    const [fullscreenLoaded, setFullscreenLoaded] = useState<boolean>(false);
     const [loadedImages, setLoadedImages] = useState<LoadedImages>({});
 
     const handleImageClick = (highResSrc: string) => {
         setFullscreenImage(highResSrc);
-        setFullscreenLoaded(false); // Reset the loaded state for the fullscreen image
     };
 
-    const handleClose = () => {
+    const handleCloseFullscreen = () => {
         setFullscreenImage(null);
-        setFullscreenLoaded(false);
     };
 
     const handleImageLoad = (imgSrc: string) => {
         setLoadedImages((prev) => ({ ...prev, [imgSrc]: true }));
     };
-
-    const handleFullscreenImageLoad = () => {
-        setFullscreenLoaded(true); // Mark the fullscreen image as loaded
-    };
+    const CloseIcon = VscClose as unknown as React.FC;
 
     return (
         <HelmetProvider>
-            {fullscreenImage && (
-                <div className="fullscreen-overlay" onClick={handleClose}>
-                    <span className="close-button" onClick={handleClose}>
-                        &times;
-                    </span>
-                    {!fullscreenLoaded && <div className="fullscreen-placeholder">Loading...</div>}
-                    <img
-                        src={fullscreenImage}
-                        alt="High Resolution"
-                        className="fullscreen-image"
-                        style={{ display: fullscreenLoaded ? "block" : "none" }}
-                        onLoad={handleFullscreenImageLoad}
-                    />
-                </div>
-            )}
+            <Modal
+                show={!!fullscreenImage}
+                onHide={handleCloseFullscreen}
+                centered
+                fullscreen
+                className="fullscreen-modal"
+            >
+                <Modal.Body className="p-0">
+                    <button className="close-icon" onClick={handleCloseFullscreen}>
+                        <CloseIcon />
+                    </button>
+                    {fullscreenImage && (
+                        <ImageWithProgress
+                            src={fullscreenImage}
+                            alt="High Resolution"
+                            className="w-100"
+                            style={{ height: "100vh", objectFit: "contain" }}
+                        />
+                    )}
+                </Modal.Body>
+            </Modal>
+
             <Container className="About-header">
                 <Helmet>
                     <meta charSet="utf-8" />

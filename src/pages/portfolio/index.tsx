@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
@@ -7,6 +7,12 @@ import { Link } from "react-router-dom";
 import { PortfolioItem } from "../../types";
 
 export const Portfolio: React.FC = () => {
+    const [loadedImages, setLoadedImages] = useState<{ [key: string]: boolean }>({});
+
+    const handleImageLoad = (imgSrc: string) => {
+        setLoadedImages((prev) => ({ ...prev, [imgSrc]: true }));
+    };
+
     return (
         <HelmetProvider>
             <Container className="About-header">
@@ -25,7 +31,18 @@ export const Portfolio: React.FC = () => {
                     {dataportfolio.map((data: PortfolioItem, i: number) => {
                         return (
                             <div key={i} className="po_item">
-                                <img src={data.img} alt="" />
+                                {!loadedImages[data.img] && (
+                                    <div className="image-placeholder">Loading...</div>
+                                )}
+                                <img
+                                    src={data.img}
+                                    alt=""
+                                    onLoad={() => handleImageLoad(data.img)}
+                                    style={{
+                                        opacity: loadedImages[data.img] ? 1 : 0,
+                                        transition: "opacity 0.3s",
+                                    }}
+                                />
                                 <div className="content">
                                     <p>{data.description}</p>
                                     <Link to={`/portfolio/${data.id}`}> view project</Link>
